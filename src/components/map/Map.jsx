@@ -68,8 +68,12 @@ export function Map() {
   const mapContainer = useRef(null);
   const map = useRef(null);
   const cracow = { lng: 19.93658, lat: 50.06143 };
-  const zoom = 10;
+  const zoom = 13;
   maptilersdk.config.apiKey = "3rFoKCI4N2NINwDwxOM9";
+
+  const randomNumberInRange = (min, max) => {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  };
 
   useEffect(() => {
     if (map.current) return; // stops map from intializing more than once
@@ -99,6 +103,7 @@ export function Map() {
               `<div class="markerBody">
                   <h1 class="markerTop">${business_name}</h1>
                   <p class="markerBottom">!!! Zniżka studencka: ${discount}% !!!</p>
+                  <p class="markerBottom">${randomNumberInRange(1, 200)}👍:👎${randomNumberInRange(1, 20)}</p>
                   <p class="markerCord">${latitude}, ${longitude}</p>
                   
               </div>
