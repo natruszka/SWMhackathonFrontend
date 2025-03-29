@@ -104,7 +104,7 @@ export function Map() {
                   <h1 class="markerTop">${business_name}</h1>
                   <p class="markerBottom">!!! Zniżka studencka: ${discount}% !!!</p>
                   <p class="markerBottom">${randomNumberInRange(1, 200)}👍:👎${randomNumberInRange(1, 20)}</p>
-                  <p class="markerCord">${latitude}, ${longitude}</p>
+                  <p class="markerCord">${latitude.toFixed(6)}, ${longitude.toFixed(6)}</p>
                   
               </div>
               `,
