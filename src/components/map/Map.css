@@ -9,3 +9,37 @@
     width: 100%;
     height: 100%;
 }
+
+
+.marker {
+    color: #000000;
+    flex-direction: column;
+    display: flex;
+}
+
+.markerTop {
+    font-size: large;
+    text-align: center;
+    padding: 5px;
+}
+
+.maplibregl-popup-content {
+    background-color: #efefef;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    font-family: "Yu Gothic UI Semibold";
+}
+
+.markerBody {
+    text-align: center;
+    border-radius: 2px;
+}
+
+.markerBottom{
+    border-radius: 2px;
+}
+
+.markerCord{
+    font-size: smaller;
+    color: #575757;
+}
