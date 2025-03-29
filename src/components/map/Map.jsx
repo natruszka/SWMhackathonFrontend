@@ -4,8 +4,17 @@ import "@maptiler/sdk/dist/maptiler-sdk.css";
 import { GeocodingControl } from "@maptiler/geocoding-control/maptilersdk";
 import "@maptiler/geocoding-control/style.css";
 import "./Map.css";
+import NewPinForm from "../NewPinForm.jsx";
 
 export function Map() {
+  const [newPinCoordinates, setNewPinCoordinates] = useState({
+    openForm: false,
+    coordinates: {
+      latitude: 0,
+      longitude: 0,
+    },
+  });
+
   const mapContainer = useRef(null);
   const map = useRef(null);
   const cracow = { lng: 19.93658, lat: 50.06143 };
@@ -23,7 +32,12 @@ export function Map() {
 
     //click events
     map.current.on("click", function (e) {
-      console.log("A click event has occurred at " + e.lngLat);
+      if (!newPinCoordinates.openForm) {
+        setNewPinCoordinates({
+          openForm: true,
+          coordinates: { latitude: e.lngLat.lat, longitude: e.lngLat.lng },
+        });
+      }
     });
 
     const gc = new GeocodingControl({
@@ -38,8 +52,16 @@ export function Map() {
   }, [cracow.lng, cracow.lat, zoom]);
 
   return (
-    <div className="map-wrap">
-      <div ref={mapContainer} className="map" />
+    <div className="flex flex-row gap-3">
+      <div className="map-wrap">
+        <div ref={mapContainer} className="map" />
+      </div>
+      {newPinCoordinates.openForm && (
+        <NewPinForm
+          coordinates={newPinCoordinates.coordinates}
+          setNewPinCoordinates={setNewPinCoordinates}
+        />
+      )}
     </div>
   );
 }

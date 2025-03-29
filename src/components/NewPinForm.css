@@ -1,0 +1,15 @@
+#newPinForm {
+    width: 20%;
+}
+
+#newPinForm input{
+    background-color: #f9fafb;
+    border: 1px solid #d1d5dc;
+    border-radius: 5px;
+    padding: 6px;
+    margin: 10px 0;
+}
+
+#newPinForm input:disabled{
+    background-color: rgba(73, 73, 73, 0.34);
+}

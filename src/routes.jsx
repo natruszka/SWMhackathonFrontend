@@ -5,14 +5,9 @@ import { Map } from "./components/map/Map.jsx";
 
 export const ROUTES = [
   {
-    name: "Home",
+    name: "🥚",
     path: "/",
     component: <Home />,
-  },
-  {
-    name: "Test",
-    path: "/test",
-    component: <Test />,
   },
   {
     name: "Login",
