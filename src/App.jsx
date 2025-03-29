@@ -1,11 +1,18 @@
-import "./App.css";
-import { Map } from "./components/map/Map.jsx";
+import NavBar from "./components/NavBar.jsx";
+import { ROUTES } from "./routes.jsx";
+import { useState } from "react";
 
 function App() {
+  const [user, setUser] = useState(null);
+  let component = ROUTES.find(
+    (route) => route.path === window.location.pathname,
+  )?.component;
+
   return (
-    <div>
-      <Map />
-    </div>
+    <>
+      <NavBar user={user} setUser={setUser} />
+      <div className="flex flex-col m-8">{component}</div>
+    </>
   );
 }
 
